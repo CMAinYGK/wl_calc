@@ -1,0 +1,57 @@
+/*off-white: #e6dedd
+//red: #8f1d14
+//black: #1B120F
+orange: #f89d13*/
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #8f1d14;
+}
+
+h1 {
+  color: #e6dedd;
+  font-weight: bold;
+  font-size: 3em;
+  text-decoration: underline;
+  align: center;
+}
+
+.content-wrap{
+  text-align: center;
+  background-color: #f89d13;
+  max-width: 950px;
+  margin: 0 auto;
+  padding-top: 30px;
+  overflow: hidden;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#squatNumber {
+  font-size: 1.5em;
+  max-width: 50px;
+}
+.description {
+  font-size: 1.2em;
+}
+
+.lift {
+  display: inline-flex;
+  font-size: 1em;
+  padding: 10px;
+}
+
+.number {
+  display: inline-flex;
+  font-family: 'Major Mono Display', monospace;
+  background-color: #1B120F;
+  padding: 10px;
+  color: #e6dedd;
+  font-size: 1em;
+}

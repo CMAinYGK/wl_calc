@@ -1,0 +1,45 @@
+<!DOCTYPE HTML5>
+
+<html dir="[direction]" lang="en">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" charset="utf-8"></script>
+<head>
+    <title>Weightlifting Ratio Calculator</title>
+</head>
+
+<body>
+  <div class="content-wrap">
+  <h1> Weightlifting Ratio Calculator</h1>
+
+  <div class="top">
+  <h2 class="description">An online calculator to determine your ideal ratio for
+    the classic lifts, based on your 1RM front or back squat.</h2>
+  <h4>Your actual results may differ by 10-15%, but a large gap may be indicative
+    of a relative weakness worthaddressing.</h4>
+
+  <label for="input">Please enter either your 1RM front squat or back squat:</label>
+  <input type="number" id="squatNumber" name="number" required min="20" length="500">
+  <button onclick="squatCalc()">Calculate on Back Squat</button>
+  <button onclick="frontSquatCalc()">Calculate on Front Squat</button>
+</div>
+
+<div>
+  <p class="lift" id="snatch">Snatch</p>
+  <p class="number" id="snatchNumber">000</p>
+
+  <p class="lift" id="pwrSnatch">Power Snatch</p>
+  <p class="number" id="pwrSnatchNumber">000</p>
+
+  <p class="lift" id="cnj">Clean and Jerk</p>
+  <p class="number" id="cnjNumber">000</p>
+
+  <p class="lift" id="pwrClean">Power Clean</p>
+  <p class="number" id="pwrCleanNumber">000</p>
+
+  <p class="lift" id="ftSquat">Front Squat</p>
+  <p class="number" id="ftSquatNumber">000</p>
+</div>
+</div>
+
+</body>
+</html>
