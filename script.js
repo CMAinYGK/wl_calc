@@ -82,37 +82,104 @@ function robi() {
 };
 
 function qualifyingTotal() {
-  var myTotal = document.getElementById("myTotal").value;
-  var totals = [
-    190,
-    208,
-    231,
-    248,
-    262,
-    275,
-    284,
-    289,
-    296,
-    310,
-    126,
-    135,
-    150,
-    159,
-    168,
-    176,
-    182,
-    187,
-    191,
-    200
+  let myTotal = document.getElementById("myTotal").value;
+  let total =[
+    [
+      190,
+      208,
+      231,
+      248,
+      262,
+      275,
+      284,
+      289,
+      296,
+      310,
+      126,
+      135,
+      150,
+      159,
+      168,
+      176,
+      182,
+      187,
+      191,
+      200
+    ],
+    [
+      171,
+      187,
+      208,
+      223,
+      236,
+      248,
+      256,
+      260,
+      266,
+      279,
+      113,
+      122,
+      135,
+      143,
+      151,
+      158,
+      164,
+      168,
+      172,
+      180
+    ],
+    [
+      152,
+      155,
+      185,
+      198,
+      210,
+      227,
+      231,
+      248,
+      101,
+      108,
+      120,
+      127,
+      134,
+      141,
+      146,
+      150,
+      153,
+      160
+    ],
+    [
+      133,
+      146,
+      162,
+      174,
+      183,
+      193,
+      199,
+      202,
+      207,
+      217,
+      88,
+      95,
+      105,
+      111,
+      118,
+      123,
+      127,
+      131,
+      134,
+      140
+    ]
   ];
-  var qualClass = document.querySelector('input[name="qualClass"]:checked').value;
-  var qualTotal = totals[qualClass];
+  let whichMeet = document.querySelector('input[name="whichMeet"]:checked').value;
+  let qualClass = document.querySelector('input[name="qualClass"]:checked').value;
+  let qualTotal = total[whichMeet][qualClass];
 
   if (myTotal >= qualTotal) {
     document.getElementById("doIQual").innerHTML =
-      "Yes, you qualify for Canadian Senior Nationals. The minimum total is " +totals[qualClass];
+      "Yes, you qualify. The minimum total is " +total[whichMeet][qualClass];
   } else {
     document.getElementById("doIQual").innerHTML =
-      "No, you do not qualify for Canadian Senior Nationals. The minimum total is " +totals[qualClass];
+      "No, you do not qualify. The minimum total is " +total[whichMeet][qualClass];
   };
 };

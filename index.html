@@ -92,8 +92,8 @@
 </div>
 
 <div id="DIQ" class="tabcontent">
-  <h2 class="calctype"> Will I Qualify for Nationals?</h2>
-  <h3 class="description">Determine if your competition total will qualify your for Canadian Senior Nationals.</h3>
+  <h2 class="calctype"> What Meets Have I Qualified For?</h2>
+  <h3 class="description">Determine what meets your competition total qualify you for.</h3>
 
   <label for="weightClass">Select your weightclass.</label>
   <br>
@@ -121,12 +121,21 @@
     <input type="radio" name="qualClass" value="19"/> W+87
   <br>
   <br>
+  <label for="whichMeet">Which meet are you hoping to qualify for</label>
+  <br>
+  <input type="radio" name="whichMeet" value="0"/>Canadian Senior Nationals
+  <input type="radio" name="whichMeet" value="1"/>Ontario Senior Provincials
+  <input type="radio" name="whichMeet" value="2"/>2019 WinterLift
+  <input type="radio" name="whichMeet" value="3"/>2018 Fall Classic
+  <br>
+  <br>
   <label for="input">Please enter your total:</label>
   <input type="number" id="myTotal" name="myTotal" required min="20" max="500">
 
   <button onclick="qualifyingTotal()">Calculate</button>
 
   <p id="doIQual"></p>
+
 </div>
 
 
