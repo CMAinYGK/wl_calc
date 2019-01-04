@@ -78,7 +78,7 @@ function robi() {
   ];
   var b = 3.321928095;
   var weightclass = document.querySelector('input[name="weightclass"]:checked').value;
-  document.getElementById("robiOutput").innerHTML = a[weightclass]*(Math.pow(total, 3.321928095));
+  document.getElementById("robiOutput").innerHTML = (a[weightclass]*(Math.pow(total, 3.321928095))).toFixed(2);
 };
 
 function qualifyingTotal() {
