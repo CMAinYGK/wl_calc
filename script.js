@@ -1,5 +1,5 @@
 function squatCalc() {
-	var squat = document.getElementById("squatNumber").value;
+	let squat = document.getElementById("squatNumber").value;
 	document.getElementById("snatchNumber").innerHTML = Math.round(squat * 0.65);
 	document.getElementById("pwrSnatchNumber").innerHTML = Math.round(
 		squat * 0.55
@@ -15,7 +15,7 @@ function squatCalc() {
 }
 
 function frontSquatCalc() {
-	var frontSquat = document.getElementById("squatNumber").value;
+	let frontSquat = document.getElementById("squatNumber").value;
 	document.getElementById("snatchNumber").innerHTML = Math.round(
 		frontSquat * 0.9 * 0.8
 	);
@@ -33,9 +33,9 @@ function frontSquatCalc() {
 };
 
 function openCalc(event, calcType) {
-	var i;
-	var tabcontent;
-	var tablinks;
+	let i;
+	let tabcontent;
+	let tablinks;
 
 	tabcontent = document.getElementsByClassName("tabcontent");
 	for (i = 0; i < tabcontent.length; i++) {
@@ -53,8 +53,8 @@ function openCalc(event, calcType) {
 
 
 function robi() {
-	var total = document.getElementById("robitotal").value;
-	var a = [
+	let total = document.getElementById("robitotal").value;
+	let a = [
     0.000006386209266,
     0.000005183197783,
     0.000004259048574,
@@ -76,8 +76,8 @@ function robi() {
     0.000006314335523,
     0.000004765098749,
   ];
-	var b = 3.321928095;
-	var weightclass = document.querySelector('input[name="weightclass"]:checked').value;
+	let b = 3.321928095;
+	let weightclass = document.querySelector('input[name="weightclass"]:checked').value;
 	document.getElementById("robiOutput").innerHTML = a[weightclass] * (Math.pow(total, 3.321928095));
 };
 
