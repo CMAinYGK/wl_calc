@@ -1,60 +1,60 @@
 function squatCalc() {
-  var squat = document.getElementById("squatNumber").value;
-  document.getElementById("snatchNumber").innerHTML = Math.round(squat * 0.65);
-  document.getElementById("pwrSnatchNumber").innerHTML = Math.round(
-    squat * 0.55
-  );
-  document.getElementById("cnjNumber").innerHTML = Math.round(squat * 0.775);
-  document.getElementById("pwrCleanNumber").innerHTML = Math.round(
-    squat * 0.65
-  );
-  document.getElementById("ftSquatNumber").innerHTML = Math.round(
-    squat * 0.875
-  );
-  document.getElementById("ftSquat").innerHTML = "Front Squat";
+	let squat = document.getElementById("squatNumber").value;
+	document.getElementById("snatchNumber").innerHTML = Math.round(squat * 0.65);
+	document.getElementById("pwrSnatchNumber").innerHTML = Math.round(
+		squat * 0.55
+	);
+	document.getElementById("cnjNumber").innerHTML = Math.round(squat * 0.775);
+	document.getElementById("pwrCleanNumber").innerHTML = Math.round(
+		squat * 0.65
+	);
+	document.getElementById("ftSquatNumber").innerHTML = Math.round(
+		squat * 0.875
+	);
+	document.getElementById("ftSquat").innerHTML = "Front Squat";
 }
 
 function frontSquatCalc() {
-  var frontSquat = document.getElementById("squatNumber").value;
-  document.getElementById("snatchNumber").innerHTML = Math.round(
-    frontSquat * 0.9 * 0.8
-  );
-  document.getElementById("pwrSnatchNumber").innerHTML = Math.round(
-    frontSquat * 0.9 * 0.8 * 0.8
-  );
-  document.getElementById("cnjNumber").innerHTML = Math.round(frontSquat * 0.9);
-  document.getElementById("pwrCleanNumber").innerHTML = Math.round(
-    frontSquat * 0.9 * 0.8
-  );
-  document.getElementById("ftSquat").innerHTML = "Back Squat";
-  document.getElementById("ftSquatNumber").innerHTML = Math.round(
-    frontSquat / 0.9
-  );
+	let frontSquat = document.getElementById("squatNumber").value;
+	document.getElementById("snatchNumber").innerHTML = Math.round(
+		frontSquat * 0.9 * 0.8
+	);
+	document.getElementById("pwrSnatchNumber").innerHTML = Math.round(
+		frontSquat * 0.9 * 0.8 * 0.8
+	);
+	document.getElementById("cnjNumber").innerHTML = Math.round(frontSquat * 0.9);
+	document.getElementById("pwrCleanNumber").innerHTML = Math.round(
+		frontSquat * 0.9 * 0.8
+	);
+	document.getElementById("ftSquat").innerHTML = "Back Squat";
+	document.getElementById("ftSquatNumber").innerHTML = Math.round(
+		frontSquat / 0.9
+	);
 };
 
 function openCalc(event, calcType) {
-  var i;
-  var tabcontent;
-  var tablinks;
+	let i;
+	let tabcontent;
+	let tablinks;
 
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+	tabcontent = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	}
 
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+	tablinks = document.getElementsByClassName("tablinks");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
 
-  document.getElementById(calcType).style.display = "block";
-  event.currentTarget.className += " active";
+	document.getElementById(calcType).style.display = "block";
+	event.currentTarget.className += " active";
 };
 
 
 function robi() {
-  var total = document.getElementById("robitotal").value;
-  var a = [
+	let total = document.getElementById("robitotal").value;
+	let a = [
     0.000006386209266,
     0.000005183197783,
     0.000004259048574,
@@ -76,14 +76,14 @@ function robi() {
     0.000006314335523,
     0.000004765098749,
   ];
-  var b = 3.321928095;
-  var weightclass = document.querySelector('input[name="weightclass"]:checked').value;
-  document.getElementById("robiOutput").innerHTML = (a[weightclass]*(Math.pow(total, 3.321928095))).toFixed(2);
+	let b = 3.321928095;
+	let weightclass = document.querySelector('input[name="weightclass"]:checked').value;
+	document.getElementById("robiOutput").innerHTML = a[weightclass] * (Math.pow(total, 3.321928095));
 };
 
 function qualifyingTotal() {
-  let myTotal = document.getElementById("myTotal").value;
-  let total =[
+	let myTotal = document.getElementById("myTotal").value;
+	let total = [
     [
       190,
       208,
@@ -173,15 +173,33 @@ function qualifyingTotal() {
       140
     ]
   ];
-  let whichMeet = document.querySelector('input[name="whichMeet"]:checked').value;
-  let qualClass = document.querySelector('input[name="qualClass"]:checked').value;
-  let qualTotal = total[whichMeet][qualClass];
+	let whichMeet = document.querySelector('input[name="whichMeet"]:checked').value;
+	let qualClass = document.querySelector('input[name="qualClass"]:checked').value;
+	let qualTotal = total[whichMeet][qualClass];
 
-  if (myTotal >= qualTotal) {
-    document.getElementById("doIQual").innerHTML =
-      "Yes, you qualify. The minimum total is " +total[whichMeet][qualClass];
-  } else {
-    document.getElementById("doIQual").innerHTML =
-      "No, you do not qualify. The minimum total is " +total[whichMeet][qualClass];
-  };
+	if (myTotal >= qualTotal) {
+		document.getElementById("doIQual").innerHTML =
+			"Yes, you qualify. The minimum total is " + total[whichMeet][qualClass];
+	} else {
+		document.getElementById("doIQual").innerHTML =
+			"No, you do not qualify. The minimum total is " + total[whichMeet][qualClass];
+	};
 };
+
+// Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+function slideUpdate() {
+	let slider = document.getElementById("slider");
+	let output = document.getElementById("barweight");
+	output.innerHTML = slider.value;
+
+	function plateNeeds() {
+		let plateWeight = (slider.value - 25);
+		let side = plateWeight / 2;
+
+		document.getElementById("test").innerHTML = side;
+	}
+
+	plateNeeds();
+}

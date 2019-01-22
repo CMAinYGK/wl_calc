@@ -1,143 +1,154 @@
 <!DOCTYPE HTML5>
 
 <html dir="[direction]" lang="en">
-<link rel="stylesheet" href="styles.css">
-<script src="script.js" charset="utf-8"></script>
-<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" charset="utf-8"></script>
+
+  <head>
     <title>Weightlifting Calculators</title>
-</head>
+  </head>
 
-<body>
-  <div class="content-wrap">
-    <h1> Weightlifting Calculators</h1>
-  <div class="tab">
-    <button class="tab-links" onclick="openCalc(event,'Ratios')">Ratios</button>
-    <button class="tab-links" onclick="openCalc(event,'ROBI')">ROBI</button>
-    <button class="tab-links" onclick="openCalc(event,'DIQ')">Do I Qualify?</button>
+  <body>
+    <div class="content-wrap">
+      <h1> Weightlifting Calculators</h1>
+      <div class="tab">
+        <button class="tab-links" onclick="openCalc(event,'Ratios')">Ratios</button>
+        <button class="tab-links" onclick="openCalc(event,'ROBI')">ROBI</button>
+        <button class="tab-links" onclick="openCalc(event,'DIQ')">Do I Qualify?</button>
+        <button class="tab-links" onclick="openCalc(event,'barload')">Bar Load Calculator</button>
 
+        <div id="Ratios" class="tabcontent">
+          <div class="top">
+            <h2 class="calctype"> Ratio Calculator</h2>
+            <h3 class="description">An online calculator to determine your ideal ratio for
+              the classic lifts, based on your 1RM front or back squat. Your actual results may differ by 10-15%, but a large gap may be indicative
+              of a relative weakness worth addressing.</h3>
 
+            <label for="input">Please enter either your 1RM front squat or back squat:</label>
+            <input type="number" id="squatNumber" name="number" required min="20" max="500">
+            <button onclick="squatCalc()">Calculate on Back Squat</button>
+            <button onclick="frontSquatCalc()">Calculate on Front Squat</button>
+          </div>
 
-<div id="Ratios" class="tabcontent">
-    <div class="top">
-      <h2 class="calctype"> Ratio Calculator</h2>
-      <h3 class="description">An online calculator to determine your ideal ratio for
-    the classic lifts, based on your 1RM front or back squat. Your actual results may differ by 10-15%, but a large gap may be indicative
-    of a relative weakness worth addressing.</h3>
+          <div>
+            <p class="lift" id="snatch">Snatch</p>
+            <p class="number" id="snatchNumber">000</p>
 
-  <label for="input">Please enter either your 1RM front squat or back squat:</label>
-  <input type="number" id="squatNumber" name="number" required min="20" max="500">
-  <button onclick="squatCalc()">Calculate on Back Squat</button>
-  <button onclick="frontSquatCalc()">Calculate on Front Squat</button>
-</div>
+            <p class="lift" id="pwrSnatch">Power Snatch</p>
+            <p class="number" id="pwrSnatchNumber">000</p>
 
-<div>
-  <p class="lift" id="snatch">Snatch</p>
-  <p class="number" id="snatchNumber">000</p>
+            <p class="lift" id="cnj">Clean and Jerk</p>
+            <p class="number" id="cnjNumber">000</p>
 
-  <p class="lift" id="pwrSnatch">Power Snatch</p>
-  <p class="number" id="pwrSnatchNumber">000</p>
+            <p class="lift" id="pwrClean">Power Clean</p>
+            <p class="number" id="pwrCleanNumber">000</p>
 
-  <p class="lift" id="cnj">Clean and Jerk</p>
-  <p class="number" id="cnjNumber">000</p>
+            <p class="lift" id="ftSquat">Front Squat</p>
+            <p class="number" id="ftSquatNumber">000</p>
+          </div>
+        </div>
 
-  <p class="lift" id="pwrClean">Power Clean</p>
-  <p class="number" id="pwrCleanNumber">000</p>
+        <div id="ROBI" class="tabcontent">
+          <h2 class="calctype"> ROBI Calculator</h2>
+          <h3 class="description">Calculate your ROBI score.</h3>
+          <p> The ROBI Points method is a calculation that allows you to compare individual
+            Total results achieved in different Junior / Senior bodyweight categories.
+            The score is based on the individual's Total result, their bodyweight category -
+            but not the lifter's exact bodyweight - and the actual World Record in their class.
+            <br>
+            <br>
 
-  <p class="lift" id="ftSquat">Front Squat</p>
-  <p class="number" id="ftSquatNumber">000</p>
-</div>
-</div>
+            <label id="weightClass">Select your weightclass.</label>
+            <br>
+            <input type="radio" name="weightclass" value="0" /> M55
+            <input type="radio" name="weightclass" value="1" /> M61
+            <input type="radio" name="weightclass" value="2" /> M67
+            <input type="radio" name="weightclass" value="3" /> M73
+            <input type="radio" name="weightclass" value="4" /> M81
+            <input type="radio" name="weightclass" value="5" /> M89
+            <input type="radio" name="weightclass" value="6" /> M96
+            <input type="radio" name="weightclass" value="7" /> M102
+            <input type="radio" name="weightclass" value="8" /> M109
+            <input type="radio" name="weightclass" value="9" /> M+109
+            <br>
+            <br>
+            <input type="radio" name="weightclass" value="10" /> W45
+            <input type="radio" name="weightclass" value="11" /> W49
+            <input type="radio" name="weightclass" value="12" /> W55
+            <input type="radio" name="weightclass" value="13" /> W59
+            <input type="radio" name="weightclass" value="14" /> W64
+            <input type="radio" name="weightclass" value="15" /> W71
+            <input type="radio" name="weightclass" value="16" /> W76
+            <input type="radio" name="weightclass" value="17" /> W81
+            <input type="radio" name="weightclass" value="18" /> W87
+            <input type="radio" name="weightclass" value="19" /> W+87
+            <br>
+            <label for="input">Please enter your total:</label>
+            <input type="number" id="robitotal" name="robitotal" required min="20" max="500">
+            <button onclick="robi()">Calculate</button>
+            <br>
+            <p id="robiOutput"></p>
 
-<div id="ROBI" class="tabcontent">
-  <h2 class="calctype"> ROBI Calculator</h2>
-  <h3 class="description">Calculate your ROBI score.</h3>
-  <p> The ROBI Points method is a calculation that allows you to compare individual
-    Total results achieved in different Junior / Senior bodyweight categories.
-    The score is based on the individual's Total result, their bodyweight category -
-    but not the lifter's exact bodyweight - and the actual World Record in their class.
-  <br>
-  <br>
+        </div>
 
-  <label id="weightClass">Select your weightclass.</label>
-  <br>
-    <input type="radio" name="weightclass" value="0"/> M55
-    <input type="radio" name="weightclass" value="1"/> M61
-    <input type="radio" name="weightclass" value="2"/> M67
-    <input type="radio" name="weightclass" value="3"/> M73
-    <input type="radio" name="weightclass" value="4"/> M81
-    <input type="radio" name="weightclass" value="5"/> M89
-    <input type="radio" name="weightclass" value="6"/> M96
-    <input type="radio" name="weightclass" value="7"/> M102
-    <input type="radio" name="weightclass" value="8"/> M109
-    <input type="radio" name="weightclass" value="9"/> M+109
-  <br>
-  <br>
-    <input type="radio" name="weightclass" value="10"/> W45
-    <input type="radio" name="weightclass" value="11"/> W49
-    <input type="radio" name="weightclass" value="12"/> W55
-    <input type="radio" name="weightclass" value="13"/> W59
-    <input type="radio" name="weightclass" value="14"/> W64
-    <input type="radio" name="weightclass" value="15"/> W71
-    <input type="radio" name="weightclass" value="16"/> W76
-    <input type="radio" name="weightclass" value="17"/> W81
-    <input type="radio" name="weightclass" value="18"/> W87
-    <input type="radio" name="weightclass" value="19"/> W+87
-  <br>
-  <label for="input">Please enter your total:</label>
-  <input type="number" id="robitotal" name="robitotal" required min="20" max="500">
-  <button onclick="robi()">Calculate</button>
-  <br>
-  <p id="robiOutput"></p>
+        <div id="DIQ" class="tabcontent">
+          <h2 class="calctype"> What Meets Have I Qualified For?</h2>
+          <h3 class="description">Determine what meets your competition total qualify you for.</h3>
 
-</div>
+          <label for="weightClass">Select your weightclass.</label>
+          <br>
+          <input type="radio" name="qualClass" value="0" /> M55
+          <input type="radio" name="qualClass" value="1" /> M61
+          <input type="radio" name="qualClass" value="2" /> M67
+          <input type="radio" name="qualClass" value="3" /> M73
+          <input type="radio" name="qualClass" value="4" /> M81
+          <input type="radio" name="qualClass" value="5" /> M89
+          <input type="radio" name="qualClass" value="6" /> M96
+          <input type="radio" name="qualClass" value="7" /> M102
+          <input type="radio" name="qualClass" value="8" /> M109
+          <input type="radio" name="qualClass" value="9" /> M+109
+          <br>
+          <br>
+          <input type="radio" name="qualClass" value="10" /> W45
+          <input type="radio" name="qualClass" value="11" /> W49
+          <input type="radio" name="qualClass" value="12" /> W55
+          <input type="radio" name="qualClass" value="13" /> W59
+          <input type="radio" name="qualClass" value="14" /> W64
+          <input type="radio" name="qualClass" value="15" /> W71
+          <input type="radio" name="qualClass" value="16" /> W76
+          <input type="radio" name="qualClass" value="17" /> W81
+          <input type="radio" name="qualClass" value="18" /> W87
+          <input type="radio" name="qualClass" value="19" /> W+87
+          <br>
+          <br>
+          <label for="whichMeet">Which meet are you hoping to qualify for</label>
+          <br>
+          <input type="radio" name="whichMeet" value="0" />Canadian Senior Nationals
+          <input type="radio" name="whichMeet" value="1" />Ontario Senior Provincials
+          <input type="radio" name="whichMeet" value="2" />2019 WinterLift
+          <input type="radio" name="whichMeet" value="3" />2018 Fall Classic
+          <br>
+          <br>
+          <label for="input">Please enter your total:</label>
+          <input type="number" id="myTotal" name="myTotal" required min="20" max="500">
 
-<div id="DIQ" class="tabcontent">
-  <h2 class="calctype"> What Meets Have I Qualified For?</h2>
-  <h3 class="description">Determine what meets your competition total qualify you for.</h3>
+          <button onclick="qualifyingTotal()">Calculate</button>
 
-  <label for="weightClass">Select your weightclass.</label>
-  <br>
-    <input type="radio" name="qualClass" value="0"/> M55
-    <input type="radio" name="qualClass" value="1"/> M61
-    <input type="radio" name="qualClass" value="2"/> M67
-    <input type="radio" name="qualClass" value="3"/> M73
-    <input type="radio" name="qualClass" value="4"/> M81
-    <input type="radio" name="qualClass" value="5"/> M89
-    <input type="radio" name="qualClass" value="6"/> M96
-    <input type="radio" name="qualClass" value="7"/> M102
-    <input type="radio" name="qualClass" value="8"/> M109
-    <input type="radio" name="qualClass" value="9"/> M+109
-  <br>
-  <br>
-    <input type="radio" name="qualClass" value="10"/> W45
-    <input type="radio" name="qualClass" value="11"/> W49
-    <input type="radio" name="qualClass" value="12"/> W55
-    <input type="radio" name="qualClass" value="13"/> W59
-    <input type="radio" name="qualClass" value="14"/> W64
-    <input type="radio" name="qualClass" value="15"/> W71
-    <input type="radio" name="qualClass" value="16"/> W76
-    <input type="radio" name="qualClass" value="17"/> W81
-    <input type="radio" name="qualClass" value="18"/> W87
-    <input type="radio" name="qualClass" value="19"/> W+87
-  <br>
-  <br>
-  <label for="whichMeet">Which meet are you hoping to qualify for</label>
-  <br>
-  <input type="radio" name="whichMeet" value="0"/>Canadian Senior Nationals
-  <input type="radio" name="whichMeet" value="1"/>Ontario Senior Provincials
-  <input type="radio" name="whichMeet" value="2"/>2019 WinterLift
-  <input type="radio" name="whichMeet" value="3"/>2018 Fall Classic
-  <br>
-  <br>
-  <label for="input">Please enter your total:</label>
-  <input type="number" id="myTotal" name="myTotal" required min="20" max="500">
+          <p id="doIQual"></p>
 
-  <button onclick="qualifyingTotal()">Calculate</button>
+        </div>
 
-  <p id="doIQual"></p>
+<!--         <div id="barload" class="tabcontent">
+          <h2 class="barload">Bar Load Calculator</h2>
+          <h3 class="description">Determine what plates you'll need in order to load the bar to your desired weight.</h3>
+          <p>Calculator assumes use of a 20kg bar and competition - 2.5kg - collars. Support for 15kg bar and collarless coming soon!</p>
 
-</div>
+          <input type="range" min="25" max="330" step="1" value="1" class="slider" id="slider" oninput="slideUpdate()">
 
+          <p id="barweight">000</p>
+          <p id="test"></p>
+        </div> -->
+      </div>
+  </body>
 
-</body>
 </html>
