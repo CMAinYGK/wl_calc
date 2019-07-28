@@ -189,17 +189,25 @@ function qualifyingTotal() {
 // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
+const barType = document.querySelector('input[name="gender"]:checked').value;
+const collar = document.querySelector('input[name="collar"]:checked').value;
+
+
 function slideUpdate() {
-	let slider = document.getElementById("slider");
-	let output = document.getElementById("barweight");
+	var slider = document.getElementById("slider");
+	var output = document.getElementById("barweight");
 	output.innerHTML = slider.value;
 
 	function plateNeeds() {
-		let plateWeight = (slider.value - 25);
-		let side = plateWeight / 2;
-
+		var plateWeight = (slider.value - 25);
+		var side = plateWeight / 2;
 		document.getElementById("test").innerHTML = side;
+
+
 	}
 
 	plateNeeds();
+
+
+
 }

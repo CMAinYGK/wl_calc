@@ -16,6 +16,7 @@
         <button class="tab-links" onclick="openCalc(event,'ROBI')">ROBI</button>
         <button class="tab-links" onclick="openCalc(event,'DIQ')">Do I Qualify?</button>
         <button class="tab-links" onclick="openCalc(event,'barload')">Bar Load Calculator</button>
+        <button class="tab-links" onclick="openCalc(event,'whatsOn')">What's on the bar?</button>
 
         <div id="Ratios" class="tabcontent">
           <div class="top">
@@ -138,7 +139,7 @@
 
         </div>
 
-<!--         <div id="barload" class="tabcontent">
+        <div id="barload" class="tabcontent">
           <h2 class="barload">Bar Load Calculator</h2>
           <h3 class="description">Determine what plates you'll need in order to load the bar to your desired weight.</h3>
           <p>Calculator assumes use of a 20kg bar and competition - 2.5kg - collars. Support for 15kg bar and collarless coming soon!</p>
@@ -147,7 +148,42 @@
 
           <p id="barweight">000</p>
           <p id="test"></p>
-        </div> -->
+        </div>
+
+        <div id="whatsOn" class="tabcontent">
+          <h2 class="calctype"> What's on the bar?</h2>
+          <h3 class="description">Determine what meets your competition total qualify you for.</h3>
+
+          <label for="weightClass">What type of bar is in use?.</label>
+          <br>
+          <input type="radio" name="barType" value="20" /> Men's Bar
+          <input type="radio" name="barType" value="15" /> Women's Bar
+          <br>
+          <label for="collarWeight">Which meet are you hoping to qualify for</label>
+          <br>
+          <input type="radio" name="collarWeight" value="0" />None
+          <input type="radio" name="collarWeight" value="5" />Competition
+          <br>
+          <br>
+          <label for="input" id="plateSelect">Plates on the bar (Note: As a (properly-loaded) bar will have the same plates on each side, you should only need to see one side of the bar.)</label>
+          <br>
+          <input type="number" name="weightsOn" required min="0" max="5" />25kg(Red Bumper)
+          <input type="number" name="weightsOn" required min="0" max="1" />20kg(Blue Bumper)
+          <input type="number" name="weightsOn" required min="0" max="1" />15kg(Yellow Bumper)
+          <input type="number" name="weightsOn" required min="0" max="1" />10kg(Green Bumper)
+          <input type="number" name="weightsOn" required min="0" max="1" />5kg(White)<br>
+          <input type="number" name="weightsOn" required min="0" max="1" />2.5kg(Red Change)
+          <input type="number" name="weightsOn" required min="0" max="1" />2kg(Blue Change)
+          <input type="number" name="weightsOn" required min="0" max="1" />1.5kg(Yellow Change)
+          <input type="number" name="weightsOn" required min="0" max="1" />1kg(Green Change)
+          <input type="number" name="weightsOn" required min="0" max="1" />0.5kg(White Change)
+          <button onclick="qualifyingTotal()">Calculate</button>
+
+          <p id="doIQual"></p>
+
+        </div>
+
+
       </div>
   </body>
 

@@ -5,6 +5,8 @@ orange: #f89d13*/
 html {
   box-sizing: border-box;
   color: #e6dedd;
+  font-size: 2vw;
+  display: block;
 }
 
 body {
@@ -74,13 +76,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .lift {
-  display: inline-flex;
   font-size: 1em;
   padding: 10px;
 }
 
 .number {
-  display: inline-flex;
   font-family: 'Major Mono Display', monospace;
   background-color: #1B120F;
   padding: 10px;
@@ -116,15 +116,15 @@ input[type=number]::-webkit-outer-spin-button {
   appearance: none;
   width: 25px;
   height: 25px;
-  /* background: #1B120F; */
+  background: #1B120F;
   background: url('icons8-dumbbell-26.png');
   cursor: pointer;
-
+}
 
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  /* background: #1B120F; */
+  background: #1B120F;
   background: url('icons8-dumbbell-26.png');
   cursor: pointer;
 }
